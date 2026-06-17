@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Ambientes — Grupo Embramaco</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .sim-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 0;
+      min-height: 600px;
+    }
+
+    .sim-sidebar {
+      background: var(--navy);
+      padding: 28px 20px;
+      overflow-y: auto;
+    }
+
+    .sim-sidebar h3 {
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .sim-room-btns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .room-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      padding: 10px 8px;
+      color: rgba(255,255,255,0.8);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .room-btn:hover, .room-btn.active {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .tile-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .tile-option {
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+      aspect-ratio: 1;
+    }
+
+    .tile-option.selected { border-color: #7EB8E8; }
+
+    .tile-option img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .tile-option .tile-swatch {
+      width: 100%;
+      height: 100%;
+    }
+
+    .sim-canvas {
+      background: var(--gray-light);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .room-preview {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      position: relative;
+    }
+
+    .room-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .floor-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 38%;
+      opacity: 0.6;
+      mix-blend-mode: multiply;
+      transition: background 0.4s;
+    }
+
+    .wall-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 45%;
+      opacity: 0.5;
+      mix-blend-mode: multiply;
+      transition: background 0.4s;
+    }
+
+    .sim-info {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.92);
+      border-radius: 8px;
+      padding: 16px 20px;
+      min-width: 200px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+
+    .sim-info h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .sim-info p {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .sim-actions {
+      padding: 20px 24px;
+      background: #fff;
+      border-top: 1px solid var(--gray);
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .color-filter {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .color-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .color-dot.active, .color-dot:hover { border-color: #fff; }
+
+    @media (max-width: 768px) {
+      .sim-layout { grid-template-columns: 1fr; }
+      .sim-sidebar { order: 2; }
+      .sim-canvas { order: 1; min-height: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <nav class="navbar">
+    <a href="index.html">
+      <img src="https://www.figma.com/api/mcp/asset/22589c86-d3f1-45e3-982e-c4bd8e677304"
+           alt="Grupo Embramaco" style="height:40px;width:auto;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="quem-somos.html">Quem Somos</a></li>
+      <li><a href="produtos.html">Produtos</a></li>
+      <li><a href="quem-somos.html#marcas">Nossas Marcas</a></li>
+      <li><a href="simulador.html" class="active">Simulador</a></li>
+      <li><a href="#">Conteúdos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <div class="nav-right">
+      <img src="https://www.figma.com/api/mcp/asset/dce1fa42-b75a-40ab-8840-eaaa506c126c"
+           alt="Buscar" style="width:22px;height:22px;cursor:pointer;opacity:0.8;">
+      <div style="display:flex;gap:6px;align-items:center;">
+        <img src="https://www.figma.com/api/mcp/asset/90c33226-a635-4d7e-a0cf-8ee26cdb1549" alt="" style="width:18px;height:18px;opacity:0.8;">
+        <img src="https://www.figma.com/api/mcp/asset/4b7b4404-8850-4dd2-afd2-a406b18d286d" alt="" style="width:18px;height:18px;opacity:0.8;">
+        <img src="https://www.figma.com/api/mcp/asset/78d11149-0105-42db-ab4f-fb2b5940c0b8" alt="" style="width:18px;height:18px;opacity:0.8;">
+        <img src="https://www.figma.com/api/mcp/asset/93307960-c8e7-42dc-a269-05febdea1b8c" alt="" style="width:18px;height:18px;opacity:0.8;">
+      </div>
+      <span style="color:rgba(255,255,255,0.7);font-size:12px;font-family:'Poppins',sans-serif;">PT | EN | ES</span>
+    </div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+</header>
+
+<!-- PAGE HERO (compact) -->
+<div style="padding-top:72px; background:var(--navy); padding-bottom:40px; text-align:center;">
+  <div class="container">
+    <h1 style="color:#fff; font-size:36px; font-weight:700; margin-bottom:10px;">Simulador de Ambientes</h1>
+    <p style="color:rgba(255,255,255,0.75); font-size:15px;">Veja como nossos revestimentos ficam no seu ambiente antes de comprar.</p>
+  </div>
+</div>
+
+<!-- SIMULATOR -->
+<section style="padding: 48px 0; background: var(--gray-light);">
+  <div class="container" style="max-width:1100px;">
+    <div style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.1);">
+
+      <div class="sim-layout">
+        <!-- SIDEBAR -->
+        <div class="sim-sidebar">
+          <h3>Ambiente</h3>
+          <div class="sim-room-btns">
+            <button class="room-btn active" onclick="setRoom('sala')">🛋️ Sala</button>
+            <button class="room-btn" onclick="setRoom('cozinha')">🍳 Cozinha</button>
+            <button class="room-btn" onclick="setRoom('banheiro')">🚿 Banheiro</button>
+            <button class="room-btn" onclick="setRoom('externo')">🌿 Externo</button>
+          </div>
+
+          <h3>Filtrar por Cor</h3>
+          <div class="color-filter">
+            <div class="color-dot active" style="background:#f5f5f5; border-color:#aaa;" onclick="filterColor('todos')" title="Todos"></div>
+            <div class="color-dot" style="background:#d4c5b0;" onclick="filterColor('bege')" title="Bege"></div>
+            <div class="color-dot" style="background:#555" onclick="filterColor('cinza')" title="Cinza"></div>
+            <div class="color-dot" style="background:#fff; border-color:#ccc;" onclick="filterColor('branco')" title="Branco"></div>
+            <div class="color-dot" style="background:#3a2a1a;" onclick="filterColor('escuro')" title="Escuro"></div>
+            <div class="color-dot" style="background:#8a6a4a;" onclick="filterColor('madeira')" title="Madeira"></div>
+          </div>
+
+          <h3>Piso</h3>
+          <div class="tile-grid" id="floorTiles">
+            <div class="tile-option selected" onclick="selectTile(this,'floor','#d4c5b0')">
+              <div class="tile-swatch" style="background:linear-gradient(135deg,#d4c5b0 25%,#c4b5a0 25%,#c4b5a0 50%,#d4c5b0 50%,#d4c5b0 75%,#c4b5a0 75%); background-size:20px 20px;"></div>
+            </div>
+            <div class="tile-option" onclick="selectTile(this,'floor','#e8e0d0')">
+              <div class="tile-swatch" style="background:#e8e0d0;"></div>
+            </div>
+            <div class="tile-option" onclick="selectTile(this,'floor','#888')">
+              <div class="tile-swatch" style="background:linear-gradient(135deg,#888 25%,#777 25%,#777 50%,#888 50%,#888 75%,#777 75%); background-size:20px 20px;"></div>
+            </div>
+            <div class="tile-option" onclick="selectTile(this,'floor','#f0ece4')">
+              <div class="tile-swatch" style="background:#f0ece4;"></div>
+            </div>
+            <div class="tile-option" onclick="selectTile(this,'floor','#3a2a1a')">
+              <div class="tile-swatch" style="background:repeating-linear-gradient(90deg,#3a2a1a 0,#3a2a1a 18px,#2a1a0a 18px,#2a1a0a 20px);"></div>
+            </div>
+            <div class="tile-option" onclick="selectTile(this,'floor','#b08060')">
+              <div class="tile-swatch" style="background:repeating-linear-gradient(90deg,#b08060 0,#b08060 18px,#907050 18px,#907050 20px);"></div>
+            </div>
+          </div>
+
+          <h3>Parede</h3>
+          <div class="tile-grid" id="wallTiles">
+            <div class="tile-option selected" onclick="selectTile(this,'wall','#f5f5f5')">
+              <div class="tile-swatch" style="background:#f5f5f5; border:1px solid #e0e0e0;"></div>
+            </div>
+            <div class="tile-option" onclick="selectTile(this,'wall','#e8f0f8')">
+              <div class="tile-swatch" style="background:linear-gradient(135deg,#e8f0f8 25%,#d8e0e8 25%,#d8e0e8 50%,#e8f0f8 50%,#e8f0f8 75%,#d8e0e8 75%); background-size:16px 16px;"></div>
+            </div>
+            <div class="tile-option" onclick="selectTile(this,'wall','#e0d8d0')">
+              <div class="tile-swatch" style="background:#e0d8d0;"></div>
+            </div>
+            <div class="tile-option" onclick="selectTile(this,'wall','#1C3A6E')">
+              <div class="tile-swatch" style="background:#1C3A6E;"></div>
+            </div>
+            <div class="tile-option" onclick="selectTile(this,'wall','#2a2a2a')">
+              <div class="tile-swatch" style="background:#2a2a2a;"></div>
+            </div>
+            <div class="tile-option" onclick="selectTile(this,'wall','#c8d8b0')">
+              <div class="tile-swatch" style="background:linear-gradient(135deg,#c8d8b0 25%,#b8c8a0 25%,#b8c8a0 50%,#c8d8b0 50%,#c8d8b0 75%,#b8c8a0 75%); background-size:12px 12px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CANVAS -->
+        <div class="sim-canvas">
+          <div class="room-preview" id="roomPreview">
+            <img id="roomImg" src="https://www.figma.com/api/mcp/asset/eb8f9ef5-0764-4665-b457-a130a0bd9a4e" alt="Sala">
+            <div class="wall-overlay" id="wallOverlay" style="background:#f5f5f5;"></div>
+            <div class="floor-overlay" id="floorOverlay" style="background:#d4c5b0;"></div>
+            <div class="sim-info">
+              <h4 id="simTileName">Porcelanato Bege Claro</h4>
+              <p id="simTileDesc">60×60 cm · Polido<br>Coleção Classic</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sim-actions">
+        <button class="btn" style="background:var(--gray-light);color:var(--navy);border:1px solid var(--gray);" onclick="window.print()">
+          🖨️ Imprimir
+        </button>
+        <a href="contato.html" class="btn btn-primary">Solicitar orçamento</a>
+      </div>
+    </div>
+
+    <p style="text-align:center; color:#999; font-size:13px; margin-top:20px;">
+      * As cores exibidas podem variar de acordo com a calibração do seu monitor. Consulte amostras físicas em nossa loja.
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:60px 0; background:var(--navy); text-align:center;">
+  <div class="container">
+    <h2 style="color:#fff; font-size:28px; font-weight:700; margin-bottom:16px;">Gostou de algum produto?</h2>
+    <p style="color:rgba(255,255,255,0.75); margin-bottom:28px;">Entre em contato com nossa equipe e encontre o representante mais próximo de você.</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <a href="produtos.html" class="btn btn-outline">Ver catálogo completo</a>
+      <a href="contato.html" class="btn btn-primary" style="background:#fff;color:var(--navy);">Fale com um consultor</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Fale Conosco</h4>
+          <div class="contact-line">📞 SAC — 0800 010 8550</div>
+          <div class="contact-line">📞 Matriz — (19) 3545-8500</div>
+          <br>
+          <div><strong style="color:#fff;font-size:13px;">ATENDIMENTO</strong></div>
+          <p>Segunda à sexta: 07h30 às 17h30</p>
+          <p>Sábado: 8h às 11h</p>
+          <br>
+          <div class="contact-line">📍 Av. Conde Guilherme Prates, 382 — Santa Catarina, Santa Gertrudes/SP — 13510-000</div>
+        </div>
+        <div class="footer-col">
+          <h4>Início</h4>
+          <ul>
+            <li><a href="quem-somos.html">Quem Somos</a></li>
+            <li><a href="sustentabilidade.html">Sustentabilidade</a></li>
+            <li><a href="#">Conteúdos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Marcas</h4>
+          <ul>
+            <li><a href="#">Embramaco</a></li>
+            <li><a href="#">Castelli</a></li>
+            <li><a href="#">Decore</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Atendimento</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Representantes</a></li>
+            <li><a href="#">Fornecedores</a></li>
+            <li><a href="#">Trabalhe Conosco</a></li>
+            <li><a href="https://www.embramaco.com.br/politica" target="_blank">Política de Privacidade</a></li>
+            <li><a href="https://www.embramaco.com.br/public/images/PoliticadaQualidadeeAmbiental.pdf" target="_blank">Política de Qualidade e Ambiental</a></li>
+            <li><a href="https://www.embramaco.com.br/public/docs/relatorio-igualdade-salarial-lote-2025-2.pdf" target="_blank">Relatório de Transparência Salarial</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="back-to-top">▲ Voltar ao topo</div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <img src="https://www.figma.com/api/mcp/asset/4c14729f-f643-41cb-b0ce-7015e568398e"
+             alt="Grupo Embramaco" style="height:48px;width:auto;">
+        <p class="footer-copy">
+          © Grupo Embramaco | Todos os direitos reservados |
+          <a href="https://www.embramaco.com.br/politica" target="_blank">Política de Privacidade</a> |
+          Desenvolvido por Postali e LR Marketing
+        </p>
+        <div style="display:flex;gap:20px;align-items:center;">
+          <div class="footer-social">
+            <a href="#"><img src="https://www.figma.com/api/mcp/asset/1d707f5e-4c01-4b0e-ba0a-c54d2a14059f" alt="" style="width:18px;height:18px;"></a>
+            <a href="#"><img src="https://www.figma.com/api/mcp/asset/322ccb33-a660-4044-9253-29a174d1122b" alt="" style="width:18px;height:18px;"></a>
+            <a href="#"><img src="https://www.figma.com/api/mcp/asset/f9af4029-256a-4316-9433-d78c5f9a4fba" alt="" style="width:18px;height:18px;"></a>
+            <a href="#"><img src="https://www.figma.com/api/mcp/asset/a8e1508f-93c1-4341-a47d-2f7d550239b4" alt="" style="width:18px;height:18px;"></a>
+          </div>
+          <div class="footer-langs">
+            <a href="#">PT</a> | <a href="#">EN</a> | <a href="#">ES</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  const rooms = {
+    sala:     { img: 'https://www.figma.com/api/mcp/asset/eb8f9ef5-0764-4665-b457-a130a0bd9a4e', label: 'Sala de Estar' },
+    cozinha:  { img: 'https://www.figma.com/api/mcp/asset/b9cb4e9b-d893-494f-bf2c-f88dd53d52ae', label: 'Cozinha' },
+    banheiro: { img: 'https://www.figma.com/api/mcp/asset/77bd0eef-a5b9-4f44-a86e-b68660078a2b', label: 'Banheiro' },
+    externo:  { img: 'https://www.figma.com/api/mcp/asset/490a7c54-d34b-4346-adf7-e31304f362db', label: 'Área Externa' }
+  };
+
+  const tileNames = {
+    '#d4c5b0': 'Porcelanato Bege Claro · 60×60 cm · Polido',
+    '#e8e0d0': 'Cerâmica Off-White · 45×45 cm · Acetinado',
+    '#888':    'Porcelanato Cinza · 60×60 cm · Acetinado',
+    '#f0ece4': 'Porcelanato Branco Total · 80×80 cm · Polido',
+    '#3a2a1a': 'Piso Madeirado Escuro · 20×120 cm · Acetinado',
+    '#b08060': 'Piso Madeirado Natural · 20×120 cm · Acetinado',
+    '#f5f5f5': 'Azulejo Branco Liso · 30×60 cm · Brilhante',
+    '#e8f0f8': 'Azulejo Metrô Azul · 10×20 cm · Brilhante',
+    '#e0d8d0': 'Cerâmica Nude · 30×60 cm · Acetinado',
+    '#1C3A6E': 'Porcelanato Azul Navy · 60×60 cm · Polido',
+    '#2a2a2a': 'Porcelanato Preto Basalto · 60×120 cm · Polido',
+    '#c8d8b0': 'Azulejo Floral Verde · 20×20 cm · Brilhante'
+  };
+
+  function setRoom(key) {
+    document.querySelectorAll('.room-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('roomImg').src = rooms[key].img;
+  }
+
+  function selectTile(el, type, color) {
+    const container = type === 'floor' ? 'floorTiles' : 'wallTiles';
+    document.querySelectorAll(`#${container} .tile-option`).forEach(t => t.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById(type === 'floor' ? 'floorOverlay' : 'wallOverlay').style.background = color;
+
+    const name = tileNames[color] || 'Revestimento Selecionado';
+    const parts = name.split('·');
+    document.getElementById('simTileName').textContent = parts[0].trim();
+    document.getElementById('simTileDesc').textContent = parts.slice(1).join('·').trim();
+  }
+
+  function filterColor(c) {
+    document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>
