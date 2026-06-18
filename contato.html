@@ -1229,6 +1229,18 @@ footer {
 }
 
 </style>
+<style>
+.nav-links>li{position:relative}
+.nav-links .has-drop>a{display:inline-flex;align-items:center;gap:6px}
+.nav-links .has-drop>a::after{content:'';width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.8;display:inline-block}
+.nav-links .dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(12px);min-width:220px;background:#fff;border-radius:6px;box-shadow:0 14px 34px rgba(0,0,0,.2);padding:6px 0;opacity:0;visibility:hidden;transition:.22s ease;pointer-events:none;list-style:none;z-index:500;margin:0}
+.nav-links>li:hover .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px);pointer-events:auto}
+.nav-links .dropdown li{margin:0}
+.nav-links .dropdown li a{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:13px 22px;color:#1a3a55 !important;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid #eef2f5}
+.nav-links .dropdown li:last-child a{border-bottom:none}
+.nav-links .dropdown li a::after{content:'\203A';color:#9bb3c6;font-weight:700}
+.nav-links .dropdown li a:hover{background:#f3f7fa;color:#003e6b !important;padding-left:28px}
+</style>
 </head>
 <body>
 
@@ -1241,11 +1253,11 @@ footer {
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="quem-somos.html">Quem Somos</a></li>
-      <li><a href="produtos.html">Produtos</a></li>
-      <li><a href="quem-somos.html#marcas">Nossas Marcas</a></li>
+      <li class="has-drop"><a href="quem-somos.html">Quem Somos</a><ul class="dropdown"><li><a href="quem-somos.html">Institucional</a></li><li><a href="sustentabilidade.html">Sustentabilidade</a></li></ul></li>
+      <li class="has-drop"><a href="produtos.html">Produtos</a><ul class="dropdown"><li><a href="produtos.html">Cerâmica</a></li><li><a href="produtos.html">Porcelanato</a></li></ul></li>
+      <li class="has-drop"><a href="quem-somos.html#marcas">Nossas Marcas</a><ul class="dropdown"><li><a href="#">Embramaco</a></li><li><a href="#">Castelli</a></li><li><a href="#">Decore</a></li></ul></li>
       <li><a href="simulador.html">Simulador</a></li>
-      <li><a href="#">Conteúdos</a></li>
+      <li class="has-drop"><a href="#">Conteúdos</a><ul class="dropdown"><li><a href="#">Download</a></li><li><a href="#">Blog</a></li></ul></li>
       <li><a href="contato.html" class="active">Contato</a></li>
     </ul>
     <div class="nav-right">
