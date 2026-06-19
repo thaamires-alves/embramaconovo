@@ -1265,6 +1265,25 @@ footer {
 @media(max-width:820px){.site-header{--u:calc(100vw/760)}.site-header .nnav,.site-header .nlang,.site-header .nicons{display:none}}
 </style>
 <style>.site-header + *{margin-top:0 !important}</style>
+<style>
+.site-footer{background:#00233c;color:rgba(255,255,255,.78);font-size:15px}
+.site-footer .footer-top{padding:64px 70px 48px}
+.site-footer .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;max-width:1500px;margin:0 auto}
+.site-footer .footer-col h4{color:#fff;font-size:17px;font-weight:600;margin-bottom:18px}
+.site-footer .footer-col p{line-height:1.7;margin-bottom:4px}
+.site-footer .footer-col ul{list-style:none;margin:0;padding:0}
+.site-footer .footer-col li{margin-bottom:10px}
+.site-footer .footer-col a{color:rgba(255,255,255,.78);text-decoration:none}
+.site-footer .footer-col a:hover{color:#fff}
+.site-footer .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding:24px 70px}
+.site-footer .footer-bottom-inner{max-width:1500px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.site-footer .flogo{display:block;width:180px;height:46px;background:var(--img-logo) left center/contain no-repeat}
+.site-footer .footer-copy{font-size:13px;color:rgba(255,255,255,.6)}
+.site-footer .footer-social{display:flex;gap:18px}
+.site-footer .fsoc{display:block;width:18px;height:18px;background-position:center;background-repeat:no-repeat;background-size:contain;filter:brightness(0) invert(1);opacity:.85}
+.site-footer .back-to-top{text-align:center;background:#4f8fbe;color:#fff;padding:10px;font-size:13px;cursor:pointer;letter-spacing:1px}
+@media(max-width:820px){.site-footer .footer-grid{grid-template-columns:1fr 1fr}.site-footer .footer-top,.site-footer .footer-bottom{padding:48px 24px}}
+</style>
 </head>
 <body>
 
@@ -1412,78 +1431,40 @@ footer {
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="container">
+<footer class="site-footer">
+    <div class="footer-top">
       <div class="footer-grid">
         <div class="footer-col">
           <h4>Fale Conosco</h4>
-          <div class="contact-line">📞 SAC — 0800 010 8550</div>
-          <div class="contact-line">📞 Matriz — (19) 3545-8500</div>
-          <br>
-          <div><strong style="color:#fff;font-size:13px;">ATENDIMENTO</strong></div>
-          <p>Segunda à sexta: 07h30 às 17h30</p>
-          <p>Sábado: 8h às 11h</p>
-          <br>
-          <div class="contact-line">📍 Av. Conde Guilherme Prates, 382 — Santa Catarina, Santa Gertrudes/SP — 13510-000</div>
+          <p>SAC – 0800 010 8550</p><p>Matriz – (19) 3545-8500</p>
+          <p style="margin-top:16px;color:#fff;font-weight:600">ATENDIMENTO</p>
+          <p>Segunda à sexta: 07h30 às 17h30</p><p>Sábado: 8h às 11h</p>
+          <p style="margin-top:16px">Av. Conde Guilherme Prates, 382 – Santa Catarina, Santa Gertrudes/SP – 13510-000</p>
         </div>
-        <div class="footer-col">
-          <h4>Início</h4>
-          <ul>
-            <li><a href="quem-somos.html">Quem Somos</a></li>
-            <li><a href="sustentabilidade.html">Sustentabilidade</a></li>
-            <li><a href="#">Conteúdos</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Marcas</h4>
-          <ul>
-            <li><a href="#">Embramaco</a></li>
-            <li><a href="#">Castelli</a></li>
-            <li><a href="#">Decore</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Atendimento</h4>
-          <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Representantes</a></li>
-            <li><a href="#">Fornecedores</a></li>
-            <li><a href="#">Trabalhe Conosco</a></li>
-            <li><a href="https://www.embramaco.com.br/politica" target="_blank">Política de Privacidade</a></li>
-            <li><a href="https://www.embramaco.com.br/public/images/PoliticadaQualidadeeAmbiental.pdf" target="_blank">Política de Qualidade e Ambiental</a></li>
-            <li><a href="https://www.embramaco.com.br/public/docs/relatorio-igualdade-salarial-lote-2025-2.pdf" target="_blank">Relatório de Transparência Salarial</a></li>
-          </ul>
-        </div>
+        <div class="footer-col"><h4>Início</h4><ul>
+          <li><a href="quem-somos.html">Quem Somos</a></li><li><a href="sustentabilidade.html">Sustentabilidade</a></li><li><a href="#">Conteúdos</a></li></ul></div>
+        <div class="footer-col"><h4>Marcas</h4><ul>
+          <li><a href="#">Embramaco</a></li><li><a href="#">Castelli</a></li><li><a href="#">Decore</a></li></ul></div>
+        <div class="footer-col"><h4>Atendimento</h4><ul>
+          <li><a href="#">FAQ</a></li><li><a href="#">Representantes</a></li><li><a href="#">Fornecedores</a></li>
+          <li><a href="#">Trabalhe Conosco</a></li><li><a href="https://www.embramaco.com.br/politica" target="_blank">Política de Privacidade</a></li></ul></div>
       </div>
     </div>
-  </div>
-  <div class="back-to-top">▲ Voltar ao topo</div>
-  <div class="footer-bottom">
-    <div class="container">
+    <div class="footer-bottom">
       <div class="footer-bottom-inner">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0oAAAJUCAMAAAAcryaAAAAAY1BMVEVMaXEDBAUDBAUDBAUDBAUDBAUDBAUDBAUDBAUDBAUDBAUDBAUDBAUDBAUDBAUDBAUDSpADSpADSpADSpADSpADSpADSpADSpADSpADSpADSpADSpADSpADSpADSpADBAUDSpAYFDyvAAAAH3RSTlMAIKBg8BDQQIDAMOCQULBwQIDAEPCgYNDgIDCwcFCQq7aG2gAAAAlwSFlzAAALEgAACxIB0t1+/AAAH0hJREFUeJzt3dmCoyoQgOHsS2dPOr0v8/5PeaKJQZGCQk2iff7vcsZ2iyUIBfR6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/9L4tOjz6hIAuOAXOy263+9zv96//ZM+n/z/udi9EFpB32G6T8PEFj+xt/7n72r4/+hqAR3rffu0qRlDJ6+fu++PRFwTc2/v37rOhGCoG1PFr++hrA+7j4+Vnf4MgysfTzwsVPvxp79+KKEraFH52J9/bsq/kPwKNEqm3I+GEv+nj5fjme/T3n7vddhvxtfOeNFYc956dvv5Q2cPf8u4Jo9faDXAf293P/lko4o4vtJfjj9j+CLWxUxA12Ih92H4d3Qf6/G7sIMCDHF6OzuLiZg1t269PR/n3fKSZHB12ePl0VblOZdFtj+usTr5R0UNHueLo+fPrTsXDx1epqfD5SJMeOmfrqNft7xVGF45C8UiLHrrk8FWqXz2oIe3wYjdE7AkmdMXHsRxHD2xCe/+xykeqeeiEF/sT5aFxdDknq5Dc0QCBljvYD+2//cujzyllBfjbw6Mb8DjsrKrU80976lJWkH9SMKGtSoH02o4C6ap4fs80P6CVSoH02b5H9b1Yy/t59PkAZS/daCX7Kn7HUclDy2zfOhFIJx+FkH9t7Xnif8mqN/3bt/kBPRS6bJ9JckVrHHbFQHpr3zdSAbGEdrLrdrtHn1DQoVDHe+N7CW1wsPJFX7vwkv8onjKxhMf7ttrt2l8kpYpV0uOjTwf/ewcrbbU7nZ7FSilJRHisD+srqUO9NC/FV0B3Thx/UbG3s1v1pEPx1El7wOPYlbt/Lcu3C7DGA7a5Iwx/27s9NrVbkdT76W6Jij/lwx5M0bUvd6t2ytcSHqP41d7FlIFttwtV/BF2JOUexENH2sPtUJJqeOPpapYZTsfS7vKbpZv2etOZ/S8nw+I/TpN/mzlNnzxnP53qtkPLlSZByUXSa0dqenYovTm26W/Wi9+ixWBY3mxY2ux32euti/+ySbe1Nlyd/mll/+3VfNN3nNRwYB9tsiScuqkUSSbF4fD6ryMfHTv7IuzzHg8n7gd8NCtsN5y7NjoVN9a/pE973/rHpJRbiqF0MrCCyX20U9RNb3ivcCOlSPo0//f67/VxJxaldBVWxXQzkp/viSkEpqXy6KxU2IzOe7UCIPk3IWKzv8uXgivhaInlzW8ZGlZ6BnOZ1cdCXLVaacbLQiiNhZf/xeLyzTQeCBusS4XNIP0Dq9KXlG92QVWyup7U2rsdsdQxpYpR7hnc/etMPuuH5zJ6vSdPkZR7bMdigbIpFTbnwsXaLCndhoFD/Y6yuPUXX7+/jg8rtFep7S4XO9t/3QmlUtmaD6Wxpx51ebzT7eRn+8n5VdSbOvYiFWzGpYoXiqTfWQ/d8V16Ak317jygrhuh9F66jnwo2RWp+WxgF1PJZlYVbpFryS4VNpOe4y/SSl8xbJOd2Ac7h8isdFKl07z3XUR1do7Dv/z4hE+rkGozx2I1JpTssiOphj2VQ8kqdwbFI1jP+blG6Kj0WTueOU4g/bdxMb5GjrohodQdh/LilPvrf27t+l6LlQvXf//M/1pVrnOHUDmUrM2s3lurZEnbqu1KX/Jxs3FsN3aEkrVdWumzQs4KZrSY911+aRLrQl7ou2NBz1wjvhUF6de81bQ9KW1mFQlWYXP+tnJV+qzSq+c4WBo2VpNiGriu8EIX2OOTCoXSS/mRbCtH4ZofsWS9651fOcvSZpviMawvm3X6j1Y5llb6FNslsWwVVOeTWpe3QxeU24/zGUPXfprWZzs4Iyn3zWdFgfMrZ1razErdsbY/B5pV3CUdRs6ALLZEpGFjFVRLx/4Wt75xaIrjCXy+/qdJaWt7irU7ksyV2FFw7iGdFpU2GxUPYhUi5wLD0XRhl3au7KKlY7v0k2rq2A4dUO6bzdeKTD9Ny2t47kjKXYkdBcJ+rM3Wxf+1vorOBYar0jdxbGd9Aq3K2/269rfqoRNc1btco8Oz6x9byNGcnzID0q2qlNTC7GoaMFxfRXbLQVKZswLSmV2UtDBYBdU5cCfl7dAB9qKYxVpRfsjC3rOXR3MVrYlcu6OzKbzMqnFZn/yOsRSl4s7RM3QOSEfToLXdxrE/epU6opwwVAiaQuPe1wPP08teJcC8E3KzpFhRII0EspIUiv9pfxWlBYZVjqV/4uqbcnXQWts9OfZH2lBHlBKpE6Y7tpDS1tbR6VKRVOhXtqpSo9O/TG19d9OA4RpLYYeDI2vo3MTtahosbjdy7Y/Rf93gfgpNY13xdd/KSbi/nW+D8/nmNrOiYFD6xPlN62vD0r/kOb6KnJU+q/RytbunYWNtN3Dsz2pCREsd3B/rpoHBqjm1L5a2Ut0ukS9FrW/+YSll6DdtP3M0DeRY24sDaF1tda6mQVdag7MlAm0nVI3EUGpbLHkDqdgTZnWjjh1TL8xLm02Kh9MMoNVmDW0c2/Ud+yNrqBuEupEcSq1amPLFG0jFrMFy1pA9uCF9ul353IZ2AK1Vejk/qdKwcQUuWUNd5Gy+84dSa+aYPHzJ30ipYtu9M2uo3KhnbWbNUWJt7xxAm/yJImsobedzpjWQNdRF7gSBfCj9OP73pwWVvG15tKzFqoqWc+1cjXpWu4L1ya8eQKvIGkpLNFdag7MlAi3nTHQohpKz3Hp7cMH0/hMokMqR5MwaKjfq+bOGXF9Fdtg4soacAzFcWUNpaJI11EXim910xzgGeCf2j+thev+SylJPJNnf/OcYKTfquZoGDO0AWm3WkDOtwTV+CW0npK0VJuqS3v/HhwTTx04TR6ezs+ugmgG0Y3fNzNAOoFVkDbkGWJzHp/+Wt0PbuUZvn+UmB5YzCfZ3Tm89fB/D9bqz8gJlVoNBGgWOAbSufO4r11gK5wBaV1udq4XBNcDC2h9ZQ53g+XI3RY5QwztH3NfdWsa3O3/Dd96zY2SVFQXpPCZWIbMJTZBiRUNa97J3kpZAjri157pLw8uqy7lOiqbwThDrd4XXur+p7PPl9s15MWF08uqqelpR8LsuzZCVTMzqrJld2aG0WJZ2khZKdp1vtCxN23UOUiuURgNhO7Sc2H73r1DDE3KLctF0w7Lp/fsnKoz+SavPBueSTMsOV83MCM5cfJ55y27oc7jMpxycdHJBo0MnyF9B/wo5N45JVGxvP9+NF07v37t9KIodZyJ8wJVTG6wgSEsgb9aQK//V2sm5mcI/A7jZrlTMSduh5byv+zfthlevx5emGvW2L1WiKLETI9o/m/AifWid+dw5gRnHs3UwQvOSz69ljXfZmNx2aDf/w5orloJVPGN//NrWKJ/et1+7vbaZznF0T03Tt1rEaHZ+aF353AW+WLquzhQoawqLwXhiaUEea1f4mub+FVaEEedNkANq97KN+oDabne7va7LSD7jQA7GSiiYJpvs7e/K5y4aL4VgWlx34q9LTobFomYqrVBGIHWHvdCk7SdiW7fn/SmmTkG1FQqq03987XafNYqhnDfF3GJPSzuaFuv8UpbW0+zcx3i4tqNptN7kP2rEqmTxYJn+xo6mxXpIG3iXBFsT8h/w39U+XYpe91eNRE/Os/yRZMmtm7yyFnPuO1ZmdupPh+JOSukK0nZ5T8nS0cv5MrQdWsnbgJc+nvkqWmwd767e7tC5peaf/At/UDCUiimh7zW/ZG7ntV3Txvr7pvAHOVavsBUGzx2CI4Qe4ti2iS69k3/hL9L0FhUXgmnkg6lRb7sWDY8/80/+hb9I1fFajKWWFUytK5AS/sm/8Be5hpqX7Ysf9NvWfDHdI4+2Cv/kX/iLws0OKXuGoZem27GraGsc9QJLBuJPUobSv2e7GvXoYGpxHIUm/8KfJI+htZUWdP6OHfjQmLfjY2Zomc4lVmP3tNjNS1P4/4FvuJKlPI3k+8/9W/OebzkwKkBMO6WxG71ezFNcKphORdPxjtF0CqOHrqIh5tUxzBXaYUgXr66G5/tE09vxsWHU842fJS8I2tbwq6OzdrVVzqZVzdvnrs7wp8YMxVCisRsVRk4IExwfvuOmMdF5PbYjilLiJAxMU4dEdO3sWc7T+fg6NhRPz/vj7vvRNTqLOHiWvCAkqqQBuat5Fx/b3bHipAz/kuFMP7vvNuYCleaSNMgLQqLa2Nh9sGfnY/t1CildTD3v95/pSNt7XHBV8mxcjz4ztETFFgN9PvZhex50Xvad/M9NL65B4qRd5AXhTFqpLGzf5uSdxomF0ib8t/h/qJNN1+pUuEaVF63NMOUjLqoXS6nXXcta2m5DzBoahf8W/xe1+1efP19aN5C1aWQNIaxaI14pnL4604JQAVlD0GhsiPlrvSmOW0zOGmIIBYxDo+P4kkyF7rRxK4lZQwywQF4jVTzbfv+z24kTHHcMWUPQ0Q5Mr+otm9zYzPy4EsekXgxms9lwWqH+NJ1uTn963sk6mTXYudXTNJlWONvodCRfo7acNbS4nO0y2UWFFPFxOunywHH9WZDKN2qQTsVc4aj96cocdDnbuO/yONlqYA6lOdKT/wfdeO+ysMtkRuncDVpWmgh6ms5LPcg9WcEzWc1OT0b8+SrmlmyEqfgFV7vLTAbqieifhsu5q/ywdjHdrJ0NcpPiFPo54TX8zkZzzyzjpbPdDHzrnmVNg+EbNZov1bdoOnNfe/HE+6fHyFkQz5cr71McWg3uN12AQPl8jk8nK63UqL/TTxv3Q5G8Bj37WI2S1+Todx4bTIf7TMj1bI4YWsureNHL4KPiWF2iYLI8r0Q28y/bNxq47m5oqb/iHhT5raGz/TVZssobdbk+n9C1r9PFasbDgX+l0YlrLY4L/2JwV4p7VF5xxHHCob30N8HVF9dD57thcImh4WIU20YbsRRZDZ/mTunuuTH3voRWwVv2mwSkvWKye7PyvYs818XMXwEZas52HH2jJr4fvT8LL8WbrHStCoaBEEzj8J9mvPdId7LpXuSdjDfKwHZczeZ3c6p6n/TGk+glTO+yTMVX7lyjiUXtWHvjtSbWkULrxZaN5Mw85dlmAwqjbtRCet/01fVppaUzEOT0KgfxHk1jTla65Kgrtq+mf6pen3/0SW+8iE5YvkcsmaSImCrTlfutO4yqK1Y5kn+5WDd7Rq/MRnm22es28kY5WxQbD6STiev6Io/jXGg3+mRdBdM4cifWy3M5Gp9CaTGbjX6np/dDdNvD7WMpt0505O26cGTpPClL8UiFWKp0CGe9QH+22cs29rCT8uOpjd44I0ccxNYOHPeowsmWXx/xOymeyWSQVEXmybvhVHT6apGCj1u3PZiJ/KNqAjmli7pFkZTK1RsivgDyHM+JooErU/lG2VNN+NayrqU8p4WcXiWx47Haya4a2EnhTJI9pqE0T96p6wpD0m7djmfG3lapMqWsmnHl/QTl0hjkrCG/kVUHiql1rKtfYPF1079NqZ0ofetU+QAu3qFqJ1sMyIpXvM7tInnMLh/Ip99wVmV0541XfDGJD5V/32Kizg2+Aa5W9Y9S4znJHtMqNyofwf1bldq/jqSpKqVB/t1YMZKKQf1U9YpzlYhzqTSan/dcpVTqKRZ6ruHV3LOKV/tb/IiJqC/FM99l1dsHC2VoVAPCU40blft2qPxwqtg12CoP8bqJk503sZPcbVsszxW8eVrEV/hWSm1v1/hgZkquWmX6Ldz6+DbqGNd3bnQXmJGvNESVbYs6Nyr3EXOr76Qz6xGr9ns0crJmJ5WahlO523ZuwZufvlQXyWVVHSh9uFkSkSJraHFe/MHT325GrY7ll+Bo7d9Jeqhlso3nRZodx/cFkBzIdxxTife0H0xmJVnZOy3/15mQC1M8c18kLpJMtMDDO0+O5HnL26Eknaw3ceFJcYcWy83U+1td77Pvx5oMZt4cE3Ml/dOlpc0Oi9/heFJjIpyXGxVM5gjiw3ctZOW6Wy+8SdaR7ikIRpe6l6c+kB1Hft6ynBL5TK41PDnunR00Cp7abfigWcem78NifTkxOR71FR9PTF9vkfxGunwKeb77sp14Xq+Xy/E8E4WbO+wn77PVbDioNXvH+00KJk3WkPnWF29sdtfkltfrR6j8pTFSvAuzLRQ7EU/2+mUnPviOfiCl8EtAPKhpW5QD0lROxTpTxDeE/ARnv6ccbdebKBc52U2UL+f6UMgRWzzfc+hNJ3XHSX/fYFU/TdaQOQPxQcluvXjXcg1L4nHMJ6YYSllNUv4CMO1GwYdNflvqM8ltcjt5toV4UBMD8rNnCssmQil8HPERNzEdfu2JV2wqaeLVFCe82YxOFcL54ndRe0apQ/NDmMzMRGKVyVywXKBkW4QriZ5bbx5g8YGchzbI3fpgqSS+PGqMwhWfiez7Wb58EybiT5H7CBd3EzHFs1wqXTbQ1FTEnyJ8xYrqjvVJNB4O5vNlI7NYvzfcx6TJGjKvueALqNatz0WBWPotQxuYt6Vc15yGdlJ9wiL5oMGRTrn4VQwPlotl/VeeXCpnd1HxcRy+i3LAXqvR8m275YDobaPrvJisIfm3MYVpsLCodes1UXCJSLl4NPW74NJLt5iwSG71zd4l4vvXxK/8QjLltqYmHSI/48G+aE1NJbuLihJH/q1uu4xCk8FkxqLXqjJl7w7FHN71oiC4QUQt6QbLnHlaooIjncxDU+uFpH+Ne0422Bcd8caSr9hUd+T22PjfIM62sWqeImsoorDQVBI1USD+yPPQBjG1pMaXOet7eiLDI51M/Iq7MT+F/JBrX+O+k83uomYi6eBdlK/Y7ETRMHEz780sNqvJGoooLGrd+lwUiKXfJrSBppYUrGpVq5+PZ76exuxdomhR0PwU8p3Wlaj+k83uYiM1FfGKzU7k3+ouyygcvhpoGv+57k7TsBQsLGrdek0UXCJS85UTrCVpvkj0+oFh9dk+FS0KmhdSsNnM6ylwssGvnJjvOnEDU8bKv9W9llHY1i6aNFlD5njBHhFFJVHzrSBWCUahDTS1pHlwJ9E/RD88YcFlS7lxR9EToHkhhXuVFCd7eXtq3ljBu1irB/COyygcXuqlQJg93auw0ESBWCVYhzbQ9LtsQjuJrJ8/aSb+iGldVvwU4YZ+6WQ1M66E22VMTWUopfhlP7miu1mu0d53GYX3r+pDA/fXvdSqMoUzpuN6H8XSbxjaIKaWJG4QUz9fLXWDPYKty5rGHfNTiHfa9xofrwK5xJngV05MF7Z4xWYn8m9192UUKpdNmqwh8+4IPuH36n1spJak6UfzU8znZu+zXuOO4oW0tk8y87TRD3QITvYX0S6jKXHkZKuHLKPw/VOhFUKRNTSJ2KRWmET0PjbSEVxzmbMnZXFUPPNGWpd9d9pdomrLzovsEsUNIvpNNVlD4m9VtVeitveXY1w4aaZlzaLAMwVC9hTcrfexVkfwMHQU8cVuhFrAShrOGpLvtOM1Po092XC7TEQXtlziPDhrKOj9+0efC6HJGrpEwVT+Wo3Itlc9wMHex0ZqSeFYk6gnKXXss5H+sJisoSonG5zsL6ZdRjy8KXEelTWk8fGiiyeTNRQoLHwTCpon7169j410BFdd5ixqklL7zJtq4hQf8kETJxtsl4kYxqEpcYL56Y/2vt0d9/5+JzMtqzdtceX5YB3lGl8Vt75WFDTSERzMGvK2Tj1Vm6QgpnVZUxaIuymUqL7UII/m2mW8V2wenEdmDcXYbne7z73zG0qVNeSvIeQnxa3VrqbJGgp2BN86a2hcdYK/YOuypj9M80IaN3CyDbXLBK7YlDgPzhqq4GO7/d6d7K9MU7j823hfbItCXbahrKFg72MjtaRwZm7ZNPDZIX/dR7Qu1xrrkovIp8on20S7zFVwRJQu3bU7Kr3A7GVa7tX7WKvfpUbrVGDKrsG0RtZfwwMjFSdbo10morDQlDhtyBpqToXpGed2Q9fdeh9r9btEJGhbvDNlpusSBb9ybj4w8lqT9kbSYjO+YbtMgabEETe5b9ZQM6InaHet93fzrKFNaIOYWpJirhLt5WXlc/hd0kh/mGKsi3d5gEtlovporpisIfGKW5k11IC42UYX7kUh79X7WKvfJdw6JaSDeiaDzebdC7ZOymHS0MDIrODyTE2XrURWo10mprAQj9LarKGaIuaynYir/96r97GRjuBgrNnk5pfrlHnBr5ymBkYGy225o+Y6U+ZN2mVK5DeWKXHalzVUhzKxZDRwL7abamRsS0/R+1hrjrGqrVPyM2Emnwy+Sx4/MNKcbLCqfeOsIcUAi4dmDVWkmsl+MvM3TTYyGk8zZ4G4gabfpWrrlDyo+vpMhN8ljcyeoRgYKT/Aim/96u0yDooSp81ZQ/HCa1mth8F6ayOj8RS9j7X6XWIStAsUrRTBr5ybD4zMCi5FyRb+VlRc8XQuCb6xOpQ1FCWQX5K2nQbda86CRmpJmqSLPM38jTXmCmtoWtZLRGpKthqjuSJSV5qclrUbxAtOr0g3Z8jN5yxoZFrWqq1TmkzsRlqXNWWBtEkWkeG28jrtMs1My3rdR/eyhnx8nRAT7eQ79+p9fMy0rI1k/TU0MDJYbtdqlwl2gcWkrihKnP9N1pC+C6GRGXFrzbSn6HeJqWrlac48+JVzt4GRipKtkXaZGh+HZieKSfI6RB7Up4+kprKGgr2PjdSSYlunai0+EZP118S0rMG2cs1dvNu0rOImfytrKOLD7269j030u0RP/yGvaGa2EQ8aHJMaNzAyWHvVTEbUSLtM8C4qShxNH253NNKw30iLQq3ex4h+l+jpP8QoiMn6EzdoeGCkGPcx7TK3/Tg0Z/K3soY09fOghrKGGpmWNRiy0VcshlLDWX+NDIwUy4KIkk2TLVhjmTOzE8XMDx0i9yrp93G3OQsUXznhGf2ip/8Q/8BEQSNzhTVSe1WcbPAuynF/LYflTbIrViw87VkDXPgpWk0OJX3L/r16HxVfOfKpDIJHkX4/8RYplqpuJGtI8UK6RqRYWph4DN5F+SZmiVKr8ChcOU4W48DFdLN+58t1GEyVqYu1xiFFtNGGlk14GspXMxoHjyJ1ZciZ81li4o1blyOmU/c8wdnPGV58wjPMcbRcTVe++T5G4RP5nQz73t+qk6msVQejF/dxr95H70jWgFXwKGJXRjhJURQzJlUzPFjczbXg8vW4h4R/rLDrm7HOXau87OJDVbr1xVb/Rkbj9epMyxq2DB9FnP4jepSxcf/FnOWp3YOuN0A1VsDNREGNnXQx06FX8dYXW43lwiJqWtYaizkHaWY0kr8Nq4dwI4s5x03LWmkayZS5ARUm+7jIPRmVd9LFPqVUlVpTsQC+12LO1esuuVK0yvQf1Ss8wayhuIGRiv4e33D0AFMYVK5J56srcfMcGJ2NJF/mkMRq9Re3i2hR6NWZljUk/xVbafqPqkduZDHnmIGRiaqPcP4GxD8TqUnhHVtpJ6Mqy5e2xTj6koutxrXGITWyPqffqFAdFY/izfqqWGuKyfoTdxK9mHPFwM/fgKdKRVsxkio8WKf6fjdbHDLRl1x8cTx+zgKvQeHHqbpoULVYiljMWTM8WNPGl6jWeFaoWFWJpVIYRD9Yiy6OQi+InF/aajW+V+9jpYrLwPoCqjz9x6bCs9VI1lCVxZxDczI7WUVKbFvLyNVsE/Vg2fP9dlM/YgIvq9W41uzFMb2P8QXDyA6kOtN/+FbGCZz5/aZlzYxn0ZFfugGrqHgs3+rIu7bufImU6S/VN7/4+nl81pDbaO2aa0zcXNHB3o9bh1KxmHPcwEhNG5/Z4TCyduW4Aer1mUaO6Xqj7tp808lUIdHTUleoF6/6Xr2PUV1+85m7ISh6Wlb775cxD2iTY1J78Ys59zfriNePu1BYhS9YuteG/8GaL1fdbmsQTIez+dz/A2izhjQtChEjDHTf0vP5craS33By3V19h8bTzXKuCqhGxqTGDIx0eFrN1nNVYSrv4/RMrB1XPEnvtTYzYbo5PVj2Dgb6v++wp6nEunhxO/NAj8VtFMfLDtcXd1I6XoWrqvCLyndIfeZxJybupksv9X7l+w0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF/8By6iDgPN64gkAAAAASUVORK5CYII="
-             alt="Grupo Embramaco" style="height:48px;width:auto;">
-        <p class="footer-copy">
-          © Grupo Embramaco | Todos os direitos reservados |
-          <a href="https://www.embramaco.com.br/politica" target="_blank">Política de Privacidade</a> |
-          Desenvolvido por Postali e LR Marketing
-        </p>
-        <div style="display:flex;gap:20px;align-items:center;">
-          <div class="footer-social">
-            <a href="#"><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgdmlld0JveD0iMCAwIDIwLjg2MzcgMjAuNzI1NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IkNhbWFkYV8xIiBjbGlwLXBhdGg9InVybCgjY2xpcDBfMF80MCkiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNOS43OTQ5MyAwLjAxOTIyMUMxOC4yMDAyIC0wLjQ3NDM3MiAyMy43NDIxIDguNjg1NTYgMTkuMjgwOSAxNS44Mzk2QzE1LjE0NDggMjIuNDcyNCA1LjM2NTk2IDIyLjMxOTMgMS40MTk3IDE1LjU4MDlDLTIuNDgzNjkgOC45MTYwNSAyLjEwMjgzIDAuNDcwMjUzIDkuNzk0OTMgMC4wMTkyMjFaTTcuNjI4MDUgNC4wNDAzN0M1LjU1NjM3IDQuMTgxODcgNC4xOTk1NyA1LjM1MjU3IDQuMDA5MTYgNy40NDYzM0M0LjM1MSAxMC44OTgyIDIuNTEzMTYgMTYuNDA2MiA3LjY5OTMxIDE2LjcxMjlDMTAuOTQzNSAxNi40MiAxNi4zNTc0IDE4LjA0MTcgMTYuODQ2MiAxMy4zMzQxQzE2LjUwMzIgOS44NDY4NiAxOC4zNjM0IDQuMzEyMzIgMTMuMTE4NyA0LjAyNkMxMS40OTk3IDMuOTM3NTYgOS4yNDA0IDMuOTI5ODIgNy42MjgwNSA0LjAzOTgyVjQuMDQwMzdaIiBmaWxsPSJ2YXIoLS1maWxsLTAsICMwMDNFNkIpIi8+CjxwYXRoIGlkPSJWZWN0b3JfMiIgZD0iTTEwLjM3OTUgNS4xOTc0NEwxMC42NTYyIDUuMjMxMTVDMTIuNzg4NSA1LjI0IDE1LjQyNzUgNC43Njg1MSAxNS42ODE0IDcuNjUyNjlDMTUuNTY3OCA5LjQzNjkyIDE1LjgzMDEgMTEuMzk5MSAxNS42NzQyIDEzLjE2MjRDMTUuNDI0NyAxNS45OTAxIDEyLjUwOTYgMTUuNTM2NCAxMC40MTQ1IDE1LjUzNThDOS41NTIxMiAxNS41MzU4IDguNTQzMjkgMTUuNTY0NSA3LjY5NzAyIDE1LjUxMTVDNi4xODM3NyAxNS40MTc1IDUuMzE5NjkgMTQuNTg5NSA1LjE3NjA1IDEzLjA4NjFDNS4yNzU3IDExLjMxMzUgNS4wNDkxMSA5LjQwODczIDUuMTc2MDUgNy42NTIxM0M1LjM5MTUxIDQuNjY3OTIgOC4yNDI2NCA1LjMxMTg1IDEwLjM3OTUgNS4xOTY4OFY1LjE5NzQ0Wk0xMy42Njc2IDYuMzU4MThDMTMuNTA1NiA2LjM5MTkgMTMuMjc2MiA2LjU4MTQ5IDEzLjIxMjIgNi43MzM0OUMxMi45NDUgNy4zNjkxMyAxMy42MzUzIDcuOTU1MDMgMTQuMjE4MyA3LjU2ODY3QzE0LjgzNDYgNy4xNTk2NSAxNC40MjA0IDYuMjAxMiAxMy42Njc2IDYuMzU4MThaTTkuOTYwNzggNy4wMjMxMkM3LjQwMDgzIDcuMzA5OTkgNi4xNTUzNyAxMC40NjMzIDcuNzYyMTYgMTIuNDYyQzkuNDQwNzcgMTQuNTUwOCAxMi44NjA5IDEzLjk2NjYgMTMuNjU4NyAxMS40MDYzQzE0LjQxMDMgOC45OTQ3MyAxMi40NiA2Ljc0Mjg4IDkuOTYwNzggNy4wMjMxMloiIGZpbGw9InZhcigtLWZpbGwtMCwgIzAwM0U2QikiLz4KPHBhdGggaWQ9IlZlY3Rvcl8zIiBkPSJNMTAuMDQzOCA4LjIyMzk3QzEyLjc2NTcgNy44NTc1MSAxMy41NjQxIDExLjUwMzQgMTEuMjMxOSAxMi4zOTA1QzkuNDI3NDMgMTMuMDc2NCA3LjY4OTggMTEuMzI2NSA4LjQwODU3IDkuNTQwNTlDOC42NjgwMiA4Ljg5NjEgOS4zNDExMyA4LjMxODQ5IDEwLjA0MzggOC4yMjM5N1oiIGZpbGw9InZhcigtLWZpbGwtMCwgIzAwM0U2QikiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8wXzQwIj4KPHJlY3Qgd2lkdGg9IjIwLjg2MzciIGhlaWdodD0iMjAuNzI1NCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K" alt="" style="width:18px;height:18px;"></a>
-            <a href="#"><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgdmlld0JveD0iMCAwIDIwLjg2MzcgMjAuNzI1NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IkNhbWFkYV8xIiBjbGlwLXBhdGg9InVybCgjY2xpcDBfMF8zOCkiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNMC4wMDc1MzY2NCA5LjcxMzk5QzAuNTI3Mjc2IDAuODkxODk2IDExLjQ3OTIgLTMuMjY3MTQgMTcuODA5MiAzLjAxODIyQzI0LjE1ODcgOS4zMjM1MSAxOS45NzYyIDIwLjIwOTMgMTEuMDkwNSAyMC43MjU1SDkuNzg2NjdDOS41NTE4OSAyMC42NjI5IDkuMjgzNjYgMjAuNjcxMyA5LjAzODg1IDIwLjYzODZDNC40Mzc1OSAyMC4wMzMyIDAuNjk3MzYzIDE2LjMzMDYgMC4wOTUwODkzIDExLjc1MjhDMC4wNjMzMDI3IDExLjUwOTYgMC4wNzA1NTIzIDExLjI0MzIgMC4wMDc1MzY2NCAxMS4wMDk1QzAuMDI1OTM5NCAxMC41ODE0IC0wLjAxNzU1ODEgMTAuMTQxIDAuMDA3NTM2NjQgOS43MTM5OVpNNS45MDY0NyA0LjQyMjI4QzQuMjkxNDggNC42MTMzNyA0LjMyOTk2IDYuOTM4NTMgNi4wMTggNy4wNDE1NUM4LjEyNzYzIDcuMTcwNiA4LjA3NjMyIDQuMTY1MjkgNS45MDY0NyA0LjQyMjI4Wk0xNi41NSAxNS42NjU0VjEwLjY2NTVDMTYuNTUgMTAuNDI2MyAxNi4zNTQyIDkuNzgwNDUgMTYuMjU1IDkuNTQxNzNDMTUuNjc4OSA4LjE1NjUgMTQuMTI0NyA3LjU4MjY4IDEyLjcxODggOC4wMzM1M0MxMi4wOTg3IDguMjMyMzcgMTEuNzM2MiA4LjYyNzg0IDExLjMzNDIgOS4xMDY5NFY4LjA1NDU4SDguODA3OThWMTUuNjY1NEgxMS4zMzQyVjExLjM1NEMxMS4zMzQyIDEwLjM3OTcgMTIuMjYyMSA5LjYxNzYxIDEzLjIxOTYgOS45NjY1NUMxMy42NzA4IDEwLjEzMTEgMTQuMDIzMiAxMC43MzA5IDE0LjAyMzIgMTEuMTkyM1YxNS42NjU5SDE2LjU0OTRMMTYuNTUgMTUuNjY1NFpNNy40MjMzIDE1LjY2NTRWOC4xMTQ5NUw3LjM2MTk2IDguMDU0MDNINC45MTcxOEw0Ljg1NTg0IDguMTE0OTVWMTUuNjY1NEg3LjQyMzNaIiBmaWxsPSJ2YXIoLS1maWxsLTAsICMwMDNFNkIpIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMF8zOCI+CjxyZWN0IHdpZHRoPSIyMC44NjM3IiBoZWlnaHQ9IjIwLjcyNTQiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==" alt="" style="width:18px;height:18px;"></a>
-            <a href="#"><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgdmlld0JveD0iMCAwIDIwLjg2MzcgMjAuNzI1NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IkNhbWFkYV8xIiBjbGlwLXBhdGg9InVybCgjY2xpcDBfMF8zMykiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNMTEuMDg3MiA5LjMxMzA4ZS0wNUwxMi4xNTUgMC4xMzMzMDJDMTYuNjExNCAwLjg1NjgzMyAyMC4xOTAzIDQuNTE3NiAyMC43NzYzIDguOTcyMUMyMC44MDg1IDkuMjE1MyAyMC44MDEzIDkuNDgxNzIgMjAuODYzNiA5LjcxNDk3VjExLjAxQzIwLjgwMDcgMTEuMjQzMyAyMC44MDg1IDExLjUwOTcgMjAuNzc2MyAxMS43NTI5QzIwLjE4MDkgMTYuMjE1NyAxNi42MTk3IDE5Ljg1ODIgMTIuMTU1IDIwLjU5MTdMMTEuMDg3MiAyMC43MjQ5SDkuNzgzNUM5LjU0ODY5IDIwLjY2MjUgOS4yODA0OSAyMC42NzAyIDkuMDM1NjYgMjAuNjM4MUM0LjQzNjggMjAuMDMyOSAwLjY5NzA2MiAxNi4zMzA3IDAuMDk1MDA5MSAxMS43NTM1QzAuMDYyNzM2NCAxMS41MTAzIDAuMDY5OTY5OSAxMS4yNDM4IDAuMDA3NjUwMjMgMTEuMDEwNkMwLjAyNjAxMjMgMTAuNTgyMiAtMC4wMTczODg5IDEwLjE0MjIgMC4wMDc2NTAyMyA5LjcxNTUzQzAuMzEwMzQ2IDQuNTc1MDkgNC42MTIwOCAwLjMwMDc4MSA5Ljc4NDA1IDkuMzEzMDhlLTA1SDExLjA4NzhIMTEuMDg3MlpNOC44Mzg2OSA1Ljg0MDg1QzcuODg5NDIgNS44NjM1MSA2LjgzNTU1IDUuODc4NDQgNS44OTkwOSA1Ljk5NjE3QzQuMzYyMjQgNi4xODkwNyA0LjEzNTIyIDcuMDA4NzggNC4wMDAwMSA4LjM5OTQ2QzMuODY0MjQgOS43OTQ1NyAzLjg0ODEgMTEuNjY2NyA0LjA5MjkzIDEzLjA0MjRDNC4zOTA2MiAxNC43MTQ1IDUuNDkyOSAxNC43MjIyIDYuOTUyOTYgMTQuODE0NUM5LjA4Mjk2IDE0Ljk0OTQgMTEuMzA0MiAxNC45MjUxIDEzLjQyOTggMTQuODE1MUMxNC42NiAxNC43NTE1IDE2LjI5OTIgMTQuOTI4NCAxNi42OTY1IDEzLjQ0NjVDMTcuMDYwNCAxMi4wODkgMTcuMDI2NSA5LjM2NjIgMTYuODI1NiA3Ljk1ODM4QzE2LjU1OCA2LjA4NDYxIDE1LjY0ODIgNi4wMTkzOCAxMy45NTg5IDUuOTA5MzlDMTIuMjg5NiA1LjgwMDUgMTAuNTE0NiA1Ljc5OTk1IDguODM4NjkgNS44Mzk3NFY1Ljg0MDg1WiIgZmlsbD0idmFyKC0tZmlsbC0wLCAjMDAzRTZCKSIvPgo8cGF0aCBpZD0iVmVjdG9yXzIiIGQ9Ik05LjEzMjY0IDguNDE5MzlMMTIuNTEzNSAxMC4zNDI0TDkuMTMyNjQgMTIuMzA1MVY4LjQxOTM5WiIgZmlsbD0idmFyKC0tZmlsbC0wLCAjMDAzRTZCKSIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzBfMzMiPgo8cmVjdCB3aWR0aD0iMjAuODYzNyIgaGVpZ2h0PSIyMC43MjU0IiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=" alt="" style="width:18px;height:18px;"></a>
-            <a href="#"><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgdmlld0JveD0iMCAwIDIxLjUxNTcgMjEuMzczIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBpZD0iTW9kb19kZV9pc29sYW1lbnRvIiBjbGlwLXBhdGg9InVybCgjY2xpcDBfMF85KSI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0xMS40MzI5IC0wLjAwMDc4NjAwN0wxMi41MzM3IDAuMTM2MzI0QzE4LjczNzcgMS4xODg2MiAyMi43NDQgNy4yNTQ5MSAyMS4xNzQ1IDEzLjM2NzVDMjAuMjUgMTYuOTY4IDE3LjMzODggMTkuOTMyIDEzLjc0MjkgMjAuOTQyNVYxMy4wNTc2SDE2LjA1MjhMMTYuMzg5IDEwLjM4NzNIMTMuNzQyOVY4LjIzODY1QzEzLjc0MjkgOC4xMTQzNiAxMy45MzI2IDcuNzQ0ODMgMTQuMDM0OCA3LjY1Mjg3QzE0LjEzMTkgNy41NjUzNiAxNC41MjY1IDcuMzgzNjYgMTQuNjQ1NSA3LjM4MzY2SDE2LjQ3MjdWNC45NjM2MUwxNS4yMzU1IDQuODc4MzNDMTMuODA1MiA0LjgyOTI5IDEyLjQwOCA0LjkzOTY0IDExLjU0MTMgNi4yMTg3OEMxMS4zMTIyIDYuNTU3MSAxMC45NzA0IDcuMzgzNjYgMTAuOTcwNCA3Ljc3OTk0VjEwLjMyNDhMMTAuOTA3NSAxMC4zODczSDguNjYwNDZWMTMuMDU3NkgxMC45NzA0VjIxLjI5NzZDMTAuNzkzIDIxLjQwMDEgMTAuNDU0IDIxLjM3IDEwLjIzMzMgMjEuMzYxN0M1LjEyNCAyMS4xNjY2IDAuNzU3MzAyIDE3LjExOSAwLjA5ODI4NDggMTIuMTEyOUMwLjA2NTE2NTUgMTEuODYyIDAuMDcyNDYzIDExLjU4NzMgMC4wMDg0Njk4NCAxMS4zNDdDMC4wMjc1NTU1IDEwLjkwNTYgLTAuMDE3MzUyIDEwLjQ1MTkgMC4wMDg0Njk4NCAxMC4wMTIyQzAuMzIwNTc3IDQuNzEzOTEgNC43NTQ2MyAwLjMwOTEwNiAxMC4wODkxIC0wLjAwMDc4NjAwN0gxMS40MzI5WiIgZmlsbD0idmFyKC0tZmlsbC0wLCAjMDAzRTZCKSIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzBfOSI+CjxyZWN0IHdpZHRoPSIyMS41MTU3IiBoZWlnaHQ9IjIxLjM3MyIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K" alt="" style="width:18px;height:18px;"></a>
-          </div>
-          <div class="footer-langs">
-            <a href="#">PT</a> | <a href="#">EN</a> | <a href="#">ES</a>
-          </div>
+        <span class="flogo" aria-label="Grupo Embramaco"></span>
+        <p class="footer-copy">© Grupo Embramaco | Todos os direitos reservados | Desenvolvido por Postali e LR Marketing</p>
+        <div class="footer-social">
+          <span class="fsoc" style="background-image:var(--img-social-1)"></span>
+          <span class="fsoc" style="background-image:var(--img-social-2)"></span>
+          <span class="fsoc" style="background-image:var(--img-social-3)"></span>
+          <span class="fsoc" style="background-image:var(--img-social-4)"></span>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+    <div class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲ VOLTAR AO TOPO</div>
+  </footer>
+
 
 <script>
 // ===== MOBILE MENU =====
