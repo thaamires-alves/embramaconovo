@@ -54,6 +54,9 @@
   .hero-inner p{color:#fff;font-weight:300;font-size:calc(var(--u)*26);line-height:1.5;max-width:calc(var(--u)*1100);margin-bottom:calc(var(--u)*36)}
   .hero-cta{display:inline-flex;align-items:center;justify-content:center;padding:calc(var(--u)*18) calc(var(--u)*46);border:calc(var(--u)*2) solid #fff;background:rgba(0,62,107,.30);color:#fff;font-size:calc(var(--u)*22);transition:.25s}
   .hero-cta:hover{background:var(--navy)}
+  .hero-dots{display:flex;gap:calc(var(--u)*16);margin-top:calc(var(--u)*64)}
+  .hero-dots span{width:calc(var(--u)*64);height:calc(var(--u)*4);background:rgba(255,255,255,.45);cursor:pointer;transition:background .3s}
+  .hero-dots span.active{background:#fff}
 
   /* SEARCH BAR */
   .searchbar{background:#fff;padding:calc(var(--u)*56) 0;border-bottom:1px solid #eee}
@@ -61,7 +64,7 @@
   .searchbar h2{color:var(--navy);font-weight:700;font-size:calc(var(--u)*30);letter-spacing:1px;margin-bottom:calc(var(--u)*24)}
   .search-row{display:flex;gap:calc(var(--u)*14);justify-content:center;flex-wrap:wrap}
   .search-row input,.search-row select{border:1px solid #cfd8df;border-radius:calc(var(--u)*8);padding:calc(var(--u)*16) calc(var(--u)*22);font-family:'Poppins',sans-serif;font-size:calc(var(--u)*18);color:#444}
-  .search-row input{width:calc(var(--u)*620)}
+  .search-row input{width:100%;max-width:calc(var(--u)*1300)}
   .search-row select{width:calc(var(--u)*300)}
   .search-row button{background:var(--navy);color:#fff;border:none;border-radius:calc(var(--u)*8);padding:calc(var(--u)*16) calc(var(--u)*44);font-size:calc(var(--u)*18);font-weight:500;cursor:pointer}
 
@@ -197,9 +200,9 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <h1>A vida acontece sobre pisos Embramaco</h1>
-      <p>Criamos produtos que unem estética, funcionalidade e design, transformando espaços em cenários para viver bem.</p>
-      <a class="hero-cta" href="produtos.html">Conheça os Produtos</a>
+      <h1>A vida acontece sobre um piso Embramaco</h1>
+      <a class="hero-cta" href="quem-somos.html">Conheça nossa trajetória</a>
+      <div class="hero-dots"><span class="active"></span><span></span><span></span><span></span><span></span></div>
     </div>
   </section>
 
@@ -208,7 +211,9 @@
     <div class="searchbar-inner">
       <h2>BUSCAR PRODUTOS</h2>
       <form class="search-row" onsubmit="return false">
-        <input type="text" placeholder="O QUE VOCÊ PROCURA ?">
+        <input type="text" placeholder="Digite o que procura">
+        <select><option>Marca</option><option>Embramaco</option><option>Castelli</option><option>Decore</option></select>
+        <select><option>Formato</option><option>122x122</option><option>70x70</option><option>83x83</option><option>60x120</option><option>90x90</option></select>
         <select><option>Tipologia</option><option>Porcelanato</option><option>Cerâmica</option><option>Piso</option><option>Parede</option></select>
         <button type="submit">Buscar</button>
       </form>
